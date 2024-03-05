@@ -3,38 +3,38 @@ import React, { useState } from "react";
 function App() {
   const [fullName, setFullName] = useState({
     fName: "",
-    lName: ""
+    lName: "",
   });
 
-  const [isMouseOver, setMouseOver] = useState(false)
-  const [isMouseOut, setMouseOut] = useState(false)
+  const [isMouseOver, setMouseOver] = useState(false);
+
 
   function handleChange(event) {
     const { value, name } = event.target;
 
-    setFullName(prevValue => {
+    setFullName((prevValue) => {
       if (name === "fName") {
         return {
           fName: value,
-          lName: prevValue.lName
+          lName: prevValue.lName,
         };
       } else if (name === "lName") {
         return {
           fName: prevValue.fName,
-          lname: value
+          lname: value,
         };
       }
     });
   }
 
-  function handleMouseOver(){
-    setMouseOver(true)
-    console.log("Mouse is roving over!")
+  function handleMouseOver() {
+    setMouseOver(true);
+    console.log("Mouse is roving over!");
   }
 
-  function handleMouseOut(){
-    setMouseOut(true)
-    console.log("Mouse is out!!!!")
+  function handleMouseOut() {
+    setMouseOver(false);
+    console.log("Mouse is out!!!!");
   }
 
   return (
@@ -55,9 +55,13 @@ function App() {
           placeholder="Last Name"
           value={fullName.lName}
         />
-        <button style={{backgroundColor:isMouseOver? "black": "white"}}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}>Submit</button>
+        <button
+          style={{ backgroundColor: isMouseOver ? "black" : "white" }}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
