@@ -6,6 +6,9 @@ function App() {
     lName: ""
   });
 
+  const [isMouseOver, setMouseOver] = useState(false)
+  const [isMouseOut, setMouseOut] = useState(false)
+
   function handleChange(event) {
     const { value, name } = event.target;
 
@@ -22,6 +25,16 @@ function App() {
         };
       }
     });
+  }
+
+  function handleMouseOver(){
+    setMouseOver(true)
+    console.log("Mouse is roving over!")
+  }
+
+  function handleMouseOut(){
+    setMouseOut(true)
+    console.log("Mouse is out!!!!")
   }
 
   return (
@@ -42,7 +55,9 @@ function App() {
           placeholder="Last Name"
           value={fullName.lName}
         />
-        <button>Submit</button>
+        <button style={{backgroundColor:isMouseOver? "black": "white"}}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}>Submit</button>
       </form>
     </div>
   );
