@@ -10,10 +10,11 @@ function App() {
 
 
   function handleChange(event) {
-    const { value, name } = event.target;
+
 
     setFullName((prevValue) => {
       if (name === "fName") {
+        console.log(prevValue)
         return {
           fName: value,
           lName: prevValue.lName,
@@ -23,7 +24,7 @@ function App() {
           fName: prevValue.fName,
           lname: value,
         };
-      }
+         const { value, name } = event.target; }
     });
   }
 
